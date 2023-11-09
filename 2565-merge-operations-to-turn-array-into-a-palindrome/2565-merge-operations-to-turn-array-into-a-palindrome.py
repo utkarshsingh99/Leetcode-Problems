@@ -4,18 +4,16 @@ class Solution:
         j, ans = n-1, 0
         while i <= j:
             f, l = nums[i], nums[j]
+            fn, ln = nums[i+1], nums[j-1]
 
             if f > l:
-                nums[j-1] = l + nums[j-1]
-                # nums.pop(n-2-i)
+                nums[j-1] = l + ln
                 ans += 1
                 j -= 1
             elif f < l:
-                nums[i+1] = f + nums[i+1]
-                # nums.pop(i+1)
+                nums[i+1] = f + fn
                 ans += 1
                 i += 1
-            # n = len(nums)
             elif f == l:
                 i += 1
                 j -= 1
